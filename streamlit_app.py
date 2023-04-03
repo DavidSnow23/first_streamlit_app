@@ -39,9 +39,6 @@ try:
     back_from_function = get_fruityvice_data(fruit_choice)
     streamlit.dataframe(back_from_function)
 
-except URLError as e:
-   streamlit.error()
-
 # don`t run anything past here while we troubleshoot
 streamlit.stop()
 
@@ -63,3 +60,6 @@ add_my_fruit = streamlit.text_input('What fruit would you like to add?')
 streamlit.write('Thanks for adding ', add_my_fruit)
 
 my_cur.execute("insert into fruit_load_list values ('from streamlit')")
+
+except URLError as e:
+   streamlit.error()
